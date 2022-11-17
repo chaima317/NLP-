@@ -1,11 +1,14 @@
 import requests
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+class Extract:
 
-class extract:
-    def __init__(self):
-
-
-
-    def wikipedia_page(title):
+ def __init__(self) :
+     super().__init__()
+     self.text=self.wikipedia_page('Earth').lower()
+     print(self.text)
+     self.wordcloud=self.cerating_worldcloud()
+ def wikipedia_page(self,title):
             '''
             This function returns the raw text of a wikipedia page
             given a wikipedia page title
@@ -35,6 +38,14 @@ class extract:
 
 
 
+ def cerating_worldcloud(self):
+     wordcloud = WordCloud(random_state=8,
+                           normalize_plurals=False,
+                           width=600, height=300,
+                           max_words=300,
+                           stopwords=[])
+     # Apply the wordcloud to the text.
+     return wordcloud
 
 
 
